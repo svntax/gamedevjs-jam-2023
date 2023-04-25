@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="Gameplay" type="Node2D"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="UI" type="CanvasLayer" parent="."]

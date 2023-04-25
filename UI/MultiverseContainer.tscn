@@ -1,0 +1,246 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/MainUITheme.tres" type="Theme" id=1]
+[ext_resource path="res://UI/MultiverseContainer.gd" type="Script" id=2]
+
+[node name="MultiverseContainer" type="Panel"]
+margin_right = 360.0
+margin_bottom = 296.0
+rect_min_size = Vector2( 360, 296 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Header" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 23.0
+margin_right = 304.0
+margin_bottom = 39.0
+text = "MULTIVERSE DATA"
+
+[node name="MessageLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -180.0
+margin_top = -8.0
+margin_right = 180.0
+margin_bottom = 8.0
+text = "Fetching data..."
+align = 1
+
+[node name="Root" type="Control" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 353.0
+margin_bottom = 289.0
+
+[node name="Page01" type="MarginContainer" parent="Root"]
+margin_left = -7.0
+margin_top = 32.0
+margin_right = 353.0
+margin_bottom = 296.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Root/Page01"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 344.0
+margin_bottom = 248.0
+custom_constants/separation = 8
+
+[node name="ColumnHeaders" type="HBoxContainer" parent="Root/Page01/VBoxContainer"]
+margin_right = 328.0
+margin_bottom = 16.0
+
+[node name="FactionLabel" type="Label" parent="Root/Page01/VBoxContainer/ColumnHeaders"]
+margin_right = 44.0
+margin_bottom = 16.0
+text = "Faction"
+
+[node name="SupportersLabel" type="Label" parent="Root/Page01/VBoxContainer/ColumnHeaders"]
+margin_left = 263.0
+margin_right = 328.0
+margin_bottom = 16.0
+size_flags_horizontal = 10
+text = "Supporters"
+align = 2
+
+[node name="ColumnSquareEmpire" type="HBoxContainer" parent="Root/Page01/VBoxContainer"]
+margin_top = 24.0
+margin_right = 328.0
+margin_bottom = 40.0
+
+[node name="FactionName" type="RichTextLabel" parent="Root/Page01/VBoxContainer/ColumnSquareEmpire"]
+margin_right = 162.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+bbcode_enabled = true
+bbcode_text = "[color=red]Square Empire[/color]"
+text = "Square Empire"
+scroll_active = false
+
+[node name="SupportersCountSquare" type="Label" parent="Root/Page01/VBoxContainer/ColumnSquareEmpire"]
+unique_name_in_owner = true
+margin_left = 300.0
+margin_right = 328.0
+margin_bottom = 16.0
+size_flags_horizontal = 10
+text = "1000"
+align = 2
+
+[node name="ColumnTriangleRebellion" type="HBoxContainer" parent="Root/Page01/VBoxContainer"]
+margin_top = 48.0
+margin_right = 328.0
+margin_bottom = 64.0
+
+[node name="FactionName" type="RichTextLabel" parent="Root/Page01/VBoxContainer/ColumnTriangleRebellion"]
+margin_right = 162.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+bbcode_enabled = true
+bbcode_text = "[color=#18d955]Triangle Rebellion[/color]"
+text = "Triangle Rebellion"
+scroll_active = false
+
+[node name="SupportersCountTriangle" type="Label" parent="Root/Page01/VBoxContainer/ColumnTriangleRebellion"]
+unique_name_in_owner = true
+margin_left = 300.0
+margin_right = 328.0
+margin_bottom = 16.0
+size_flags_horizontal = 10
+text = "1000"
+align = 2
+
+[node name="ColumnCircleAlliance" type="HBoxContainer" parent="Root/Page01/VBoxContainer"]
+margin_top = 72.0
+margin_right = 328.0
+margin_bottom = 88.0
+
+[node name="FactionName" type="RichTextLabel" parent="Root/Page01/VBoxContainer/ColumnCircleAlliance"]
+margin_right = 162.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+bbcode_enabled = true
+bbcode_text = "[color=#0098ff]Circle Alliance[/color]"
+text = "Circle Alliance"
+scroll_active = false
+
+[node name="SupportersCountCircle" type="Label" parent="Root/Page01/VBoxContainer/ColumnCircleAlliance"]
+unique_name_in_owner = true
+margin_left = 300.0
+margin_right = 328.0
+margin_bottom = 16.0
+size_flags_horizontal = 10
+text = "1000"
+align = 2
+
+[node name="PlayerStatsHeader" type="Label" parent="Root/Page01/VBoxContainer"]
+margin_top = 96.0
+margin_right = 328.0
+margin_bottom = 131.0
+text = "----------------------------------------------
+Your Support"
+autowrap = true
+
+[node name="PlayerSupportContainer" type="VBoxContainer" parent="Root/Page01/VBoxContainer"]
+margin_top = 139.0
+margin_right = 328.0
+margin_bottom = 195.0
+
+[node name="PlayerSquareEmpire" type="HBoxContainer" parent="Root/Page01/VBoxContainer/PlayerSupportContainer"]
+margin_right = 328.0
+margin_bottom = 16.0
+
+[node name="FactionName" type="RichTextLabel" parent="Root/Page01/VBoxContainer/PlayerSupportContainer/PlayerSquareEmpire"]
+margin_right = 162.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+bbcode_enabled = true
+bbcode_text = "[color=red]Square Empire[/color]"
+text = "Square Empire"
+scroll_active = false
+
+[node name="SupportersCount" type="Label" parent="Root/Page01/VBoxContainer/PlayerSupportContainer/PlayerSquareEmpire"]
+margin_left = 321.0
+margin_right = 328.0
+margin_bottom = 16.0
+size_flags_horizontal = 10
+text = "0"
+align = 2
+
+[node name="PlayerTriangleRebellion" type="HBoxContainer" parent="Root/Page01/VBoxContainer/PlayerSupportContainer"]
+margin_top = 20.0
+margin_right = 328.0
+margin_bottom = 36.0
+
+[node name="FactionName" type="RichTextLabel" parent="Root/Page01/VBoxContainer/PlayerSupportContainer/PlayerTriangleRebellion"]
+margin_right = 162.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+bbcode_enabled = true
+bbcode_text = "[color=#18d955]Triangle Rebellion[/color]"
+text = "Triangle Rebellion"
+scroll_active = false
+
+[node name="SupportersCount" type="Label" parent="Root/Page01/VBoxContainer/PlayerSupportContainer/PlayerTriangleRebellion"]
+margin_left = 321.0
+margin_right = 328.0
+margin_bottom = 16.0
+size_flags_horizontal = 10
+text = "0"
+align = 2
+
+[node name="PlayerCircleAlliance" type="HBoxContainer" parent="Root/Page01/VBoxContainer/PlayerSupportContainer"]
+margin_top = 40.0
+margin_right = 328.0
+margin_bottom = 56.0
+
+[node name="FactionName2" type="RichTextLabel" parent="Root/Page01/VBoxContainer/PlayerSupportContainer/PlayerCircleAlliance"]
+margin_right = 162.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+bbcode_enabled = true
+bbcode_text = "[color=#0098ff]Circle Alliance[/color]"
+text = "Circle Alliance"
+scroll_active = false
+
+[node name="SupportersCount" type="Label" parent="Root/Page01/VBoxContainer/PlayerSupportContainer/PlayerCircleAlliance"]
+margin_left = 321.0
+margin_right = 328.0
+margin_bottom = 16.0
+size_flags_horizontal = 10
+text = "0"
+align = 2
+
+[node name="NextButton" type="Button" parent="Root"]
+visible = false
+margin_left = 297.0
+margin_top = 257.0
+margin_right = 338.0
+margin_bottom = 279.0
+text = "NEXT"
+
+[node name="BackButton" type="Button" parent="Root"]
+visible = false
+margin_left = 9.0
+margin_top = 257.0
+margin_right = 50.0
+margin_bottom = 279.0
+text = "BACK"
+
+[node name="PageNumber" type="Label" parent="Root"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -25.0
+margin_right = 20.0
+margin_bottom = -1.0
+text = "1/1"
+align = 1
+valign = 1
