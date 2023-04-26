@@ -18,6 +18,7 @@ margin_bottom = 39.0
 text = "MULTIVERSE DATA"
 
 [node name="MessageLabel" type="Label" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -62,11 +63,11 @@ margin_bottom = 16.0
 text = "Faction"
 
 [node name="SupportersLabel" type="Label" parent="Root/Page01/VBoxContainer/ColumnHeaders"]
-margin_left = 263.0
+margin_left = 282.0
 margin_right = 328.0
 margin_bottom = 16.0
 size_flags_horizontal = 10
-text = "Supporters"
+text = "Support"
 align = 2
 
 [node name="ColumnSquareEmpire" type="HBoxContainer" parent="Root/Page01/VBoxContainer"]
@@ -164,7 +165,8 @@ bbcode_text = "[color=red]Square Empire[/color]"
 text = "Square Empire"
 scroll_active = false
 
-[node name="SupportersCount" type="Label" parent="Root/Page01/VBoxContainer/PlayerSupportContainer/PlayerSquareEmpire"]
+[node name="UserCountSquare" type="Label" parent="Root/Page01/VBoxContainer/PlayerSupportContainer/PlayerSquareEmpire"]
+unique_name_in_owner = true
 margin_left = 321.0
 margin_right = 328.0
 margin_bottom = 16.0
@@ -186,7 +188,8 @@ bbcode_text = "[color=#18d955]Triangle Rebellion[/color]"
 text = "Triangle Rebellion"
 scroll_active = false
 
-[node name="SupportersCount" type="Label" parent="Root/Page01/VBoxContainer/PlayerSupportContainer/PlayerTriangleRebellion"]
+[node name="UserCountTriangle" type="Label" parent="Root/Page01/VBoxContainer/PlayerSupportContainer/PlayerTriangleRebellion"]
+unique_name_in_owner = true
 margin_left = 321.0
 margin_right = 328.0
 margin_bottom = 16.0
@@ -208,7 +211,8 @@ bbcode_text = "[color=#0098ff]Circle Alliance[/color]"
 text = "Circle Alliance"
 scroll_active = false
 
-[node name="SupportersCount" type="Label" parent="Root/Page01/VBoxContainer/PlayerSupportContainer/PlayerCircleAlliance"]
+[node name="UserCountCircle" type="Label" parent="Root/Page01/VBoxContainer/PlayerSupportContainer/PlayerCircleAlliance"]
+unique_name_in_owner = true
 margin_left = 321.0
 margin_right = 328.0
 margin_bottom = 16.0
@@ -244,3 +248,13 @@ margin_bottom = -1.0
 text = "1/1"
 align = 1
 valign = 1
+
+[node name="RefreshButton" type="Button" parent="Root"]
+unique_name_in_owner = true
+margin_left = 281.0
+margin_top = 16.0
+margin_right = 340.0
+margin_bottom = 38.0
+text = "Refresh"
+
+[connection signal="pressed" from="Root/RefreshButton" to="." method="_on_RefreshButton_pressed"]

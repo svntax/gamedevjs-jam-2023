@@ -34,7 +34,7 @@ func call_view_method(account_id: String, method_name: String, args: Dictionary 
 	var query = JSON.print(data_to_send)
 	var url = near_connection.node_url
 	var headers = ["Content-Type: application/json"]
-	var use_ssl = false
+	var use_ssl = true
 	
 	var rpc_result = query_rpc(url, headers, use_ssl, HTTPClient.METHOD_POST, query)
 	
@@ -63,7 +63,7 @@ func block_query_latest() -> Dictionary:
 	var query = JSON.print(data_to_send)
 	var url = near_connection.node_url
 	var headers = ["Content-Type: application/json"]
-	var use_ssl = false
+	var use_ssl = true
 	
 	var rpc_result = query_rpc(url, headers, use_ssl, HTTPClient.METHOD_POST, query)
 	
@@ -87,7 +87,7 @@ func view_access_key(account_id: String, public_key: String) -> Dictionary:
 	var query = JSON.print(data_to_send)
 	var url = near_connection.node_url
 	var headers = ["Content-Type: application/json"]
-	var use_ssl = false
+	var use_ssl = true
 	
 	var rpc_result = query_rpc(url, headers, use_ssl, HTTPClient.METHOD_POST, query)
 	
@@ -117,7 +117,8 @@ func query_rpc(url: String, headers: Array, use_ssl: bool, method: int, query: S
 	if json_result.has("error"):
 		var error = json_result.error
 		var message = error.message + " " + str(error.code) + ": " + error.cause.name
-		message += "\n" + JSON.print(error.cause.info)
+		if error.cause.has("info"):
+			message += "\n" + JSON.print(error.cause.info)
 		push_error(message)
 		return json_result
 	

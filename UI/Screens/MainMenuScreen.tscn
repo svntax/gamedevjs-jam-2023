@@ -152,7 +152,6 @@ margin_right = 224.0
 margin_bottom = 198.0
 rect_min_size = Vector2( 120, 40 )
 size_flags_horizontal = 4
-disabled = true
 text = "Login"
 
 [connection signal="pressed" from="UI/Buttons/NewGameButton" to="." method="_on_NewGameButton_pressed"]

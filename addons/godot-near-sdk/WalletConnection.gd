@@ -183,7 +183,7 @@ func call_change_method(contract_id: String, method_name: String, args: Dictiona
 		var query = JSON.print(data_to_send)
 		var url = _near_connection.node_url
 		var headers = ["Content-Type: application/json"]
-		var use_ssl = false
+		var use_ssl = true
 		
 		var rpc_result = yield(Near.query_rpc(url, headers, use_ssl, HTTPClient.METHOD_POST, query), "completed")
 		

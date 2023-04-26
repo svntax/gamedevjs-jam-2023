@@ -1,0 +1,200 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/MainUITheme.tres" type="Theme" id=1]
+[ext_resource path="res://UI/FactionSupportMenu.gd" type="Script" id=2]
+
+[node name="FactionSupportMenu" type="Panel"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 360, 296 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Header" type="Label" parent="."]
+margin_top = 23.0
+margin_right = 360.0
+margin_bottom = 39.0
+text = "FACTION SUPPORT"
+align = 1
+
+[node name="Root" type="Control" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 353.0
+margin_bottom = 289.0
+
+[node name="Page01" type="MarginContainer" parent="Root"]
+margin_left = -7.0
+margin_top = 32.0
+margin_right = 353.0
+margin_bottom = 296.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Root/Page01"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 344.0
+margin_bottom = 248.0
+custom_constants/separation = 8
+
+[node name="Label" type="Label" parent="Root/Page01/VBoxContainer"]
+margin_right = 328.0
+margin_bottom = 16.0
+text = "Your support strength:"
+align = 1
+autowrap = true
+
+[node name="SupportCountLabel" type="Label" parent="Root/Page01/VBoxContainer"]
+unique_name_in_owner = true
+self_modulate = Color( 0.952941, 0.807843, 0.14902, 1 )
+margin_top = 24.0
+margin_right = 328.0
+margin_bottom = 40.0
+text = "1234"
+align = 1
+autowrap = true
+
+[node name="ChoosePrompt" type="Label" parent="Root/Page01/VBoxContainer"]
+margin_top = 48.0
+margin_right = 328.0
+margin_bottom = 83.0
+text = "----------------------
+Pick a faction to support:"
+align = 1
+autowrap = true
+
+[node name="SquareButton" type="Button" parent="Root/Page01/VBoxContainer"]
+unique_name_in_owner = true
+margin_left = 104.0
+margin_top = 91.0
+margin_right = 224.0
+margin_bottom = 131.0
+rect_min_size = Vector2( 120, 40 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Square Empire"
+
+[node name="TriangleButton" type="Button" parent="Root/Page01/VBoxContainer"]
+unique_name_in_owner = true
+margin_left = 104.0
+margin_top = 139.0
+margin_right = 224.0
+margin_bottom = 179.0
+rect_min_size = Vector2( 120, 40 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Triangle Rebellion"
+
+[node name="CircleButton" type="Button" parent="Root/Page01/VBoxContainer"]
+unique_name_in_owner = true
+margin_left = 104.0
+margin_top = 187.0
+margin_right = 224.0
+margin_bottom = 227.0
+rect_min_size = Vector2( 120, 40 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Circle Alliance"
+
+[node name="ConfirmMenu" type="PanelContainer" parent="Root"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -84.5
+margin_top = -84.5
+margin_right = 84.5
+margin_bottom = 84.5
+
+[node name="ConfirmMenuRoot" type="MarginContainer" parent="Root/ConfirmMenu"]
+unique_name_in_owner = true
+visible = false
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 162.0
+margin_bottom = 167.0
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Root/ConfirmMenu/ConfirmMenuRoot"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 147.0
+margin_bottom = 152.0
+
+[node name="Label" type="Label" parent="Root/ConfirmMenu/ConfirmMenuRoot/VBoxContainer"]
+margin_right = 139.0
+margin_bottom = 16.0
+text = "You picked"
+align = 1
+
+[node name="FactionPicked" type="Label" parent="Root/ConfirmMenu/ConfirmMenuRoot/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 20.0
+margin_right = 139.0
+margin_bottom = 36.0
+text = "Faction Name"
+align = 1
+
+[node name="Label2" type="Label" parent="Root/ConfirmMenu/ConfirmMenuRoot/VBoxContainer"]
+margin_top = 40.0
+margin_right = 139.0
+margin_bottom = 56.0
+text = "---"
+align = 1
+
+[node name="ConfirmButton" type="Button" parent="Root/ConfirmMenu/ConfirmMenuRoot/VBoxContainer"]
+margin_left = 9.0
+margin_top = 60.0
+margin_right = 129.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 120, 40 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Confirm"
+
+[node name="CancelButton" type="Button" parent="Root/ConfirmMenu/ConfirmMenuRoot/VBoxContainer"]
+margin_left = 9.0
+margin_top = 104.0
+margin_right = 129.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 120, 40 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Cancel"
+
+[node name="ResponseContainer" type="ScrollContainer" parent="Root"]
+margin_left = 105.0
+margin_top = 72.0
+margin_right = 242.0
+margin_bottom = 161.0
+rect_min_size = Vector2( 137, 89 )
+mouse_filter = 2
+
+[node name="ResponseLabel" type="Label" parent="Root/ResponseContainer"]
+unique_name_in_owner = true
+margin_right = 137.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+text = "Sending support..."
+autowrap = true
+
+[node name="OkButton" type="Button" parent="Root"]
+unique_name_in_owner = true
+margin_left = 113.0
+margin_top = 185.0
+margin_right = 233.0
+margin_bottom = 209.0
+text = "Ok"
+
+[connection signal="pressed" from="Root/Page01/VBoxContainer/SquareButton" to="." method="_on_SquareButton_pressed"]
+[connection signal="pressed" from="Root/Page01/VBoxContainer/TriangleButton" to="." method="_on_TriangleButton_pressed"]
+[connection signal="pressed" from="Root/Page01/VBoxContainer/CircleButton" to="." method="_on_CircleButton_pressed"]
+[connection signal="pressed" from="Root/ConfirmMenu/ConfirmMenuRoot/VBoxContainer/ConfirmButton" to="." method="_on_ConfirmButton_pressed"]
+[connection signal="pressed" from="Root/ConfirmMenu/ConfirmMenuRoot/VBoxContainer/CancelButton" to="." method="_on_CancelButton_pressed"]
+[connection signal="pressed" from="Root/OkButton" to="." method="_on_OkButton_pressed"]
