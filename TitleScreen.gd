@@ -18,6 +18,7 @@ func _ready():
 	# NEAR setup
 	if Near.near_connection == null:
 		Near.start_connection(config)
+	Globals.current_support_count = 0
 
 func _on_PlayButton_pressed():
 	get_tree().change_scene("res://UI/Screens/MainMenuScreen.tscn")

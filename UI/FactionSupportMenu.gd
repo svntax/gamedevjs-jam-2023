@@ -21,6 +21,9 @@ func _ready():
 	confirm_menu_root.hide()
 	response_label.hide()
 	ok_button.hide()
+	update_support_count()
+
+func update_support_count():
 	support_count_label.set_text(str(Globals.current_support_count))
 
 func _on_SquareButton_pressed():

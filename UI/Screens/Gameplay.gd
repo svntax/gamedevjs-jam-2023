@@ -9,7 +9,13 @@ onready var stars_root = $Stars
 
 onready var player_ship = $PlayerShip
 
+onready var faction_support_menu = $UI/FactionSupportMenu
+
+onready var event_count = 0
+
 func _ready():
+	faction_support_menu.hide()
+	faction_support_menu.connect("support_sent", self, "_on_support_sent")
 	for i in range(800):
 		var x = rand_range(0, 640)
 		var y = rand_range(0, 360)
@@ -18,6 +24,10 @@ func _ready():
 		star.global_position = Vector2(x, y)
 	
 	setup_story()
+
+func _on_support_sent():
+	yield(get_tree().create_timer(3), "timeout")
+	get_tree().change_scene("res://TitleScreen.tscn")
 
 func setup_story():
 	stop_travel()
@@ -56,21 +66,39 @@ func _on_EventTimer_timeout():
 
 func _close_event() -> void:
 	remove_current_event()
-	start_travel()
+	
+	if event_count >= 5:
+		faction_support_menu.show()
+		faction_support_menu.update_support_count()
+	else:
+		start_travel()
+
+func _close_event_good() -> void:
+	remove_current_event()
+	Globals.current_support_count += 1
+	if event_count >= 5:
+		faction_support_menu.show()
+		faction_support_menu.update_support_count()
+	else:
+		start_travel()
 
 func start_random_event() -> void:
 	stop_travel()
+	event_count += 1
 	
 	var event = EventMenu.instance()
 	event_root.add_child(event)
 	event.clear_pages()
-	var buttons = event.add_page("EVENT", [
-		"This is a random event"
-	],
-	[
-		"Ok"
-	])
+	var event_choice = Globals.get_random_event()
+	var labels = event_choice.labels
+	var choices = event_choice.buttons
+	var buttons = event.add_page("EVENT", labels, choices)
 	event.current_page = 0
 	yield(get_tree(), "idle_frame")
 	event.update_current_page()
-	buttons[0].connect("pressed", self, "_start_game")
+	# UNFINISHED, different callbacks for different events
+	for btn in buttons:
+		if event_choice.type == 1:
+			btn.connect("pressed", self, "_close_event_good")
+		else:
+			btn.connect("pressed", self, "_close_event")
