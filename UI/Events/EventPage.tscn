@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/MainUITheme.tres" type="Theme" id=1]
+[ext_resource path="res://UI/Events/EventPage.gd" type="Script" id=2]
+
+[node name="EventPage" type="MarginContainer"]
+margin_right = 360.0
+margin_bottom = 264.0
+rect_min_size = Vector2( 360, 264 )
+theme = ExtResource( 1 )
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
+script = ExtResource( 2 )
+
+[node name="Content" type="VBoxContainer" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 344.0
+margin_bottom = 248.0
+custom_constants/separation = 12
+
+[node name="Label" type="Label" parent="Content"]
+margin_right = 328.0
+margin_bottom = 16.0
+text = "A grand multiversal war between three factions:"
+autowrap = true
+
+[node name="SquareFaction" type="RichTextLabel" parent="Content"]
+margin_top = 28.0
+margin_right = 328.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+bbcode_enabled = true
+bbcode_text = "[color=red]Square Empire[/color]"
+text = "Square Empire"
+fit_content_height = true
+scroll_active = false
+
+[node name="TriangleFaction" type="RichTextLabel" parent="Content"]
+margin_top = 57.0
+margin_right = 328.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+bbcode_enabled = true
+bbcode_text = "[color=#18d955]Triangle Rebellion[/color]"
+text = "Triangle Rebellion"
+fit_content_height = true
+scroll_active = false
+
+[node name="CircleFaction" type="RichTextLabel" parent="Content"]
+margin_top = 86.0
+margin_right = 328.0
+margin_bottom = 103.0
+size_flags_horizontal = 3
+bbcode_enabled = true
+bbcode_text = "[color=#0098ff]Circle Alliance[/color]"
+text = "Circle Alliance"
+fit_content_height = true
+scroll_active = false
+
+[node name="Label3" type="Label" parent="Content"]
+margin_top = 115.0
+margin_right = 328.0
+margin_bottom = 188.0
+text = "has gone on for ages. In order to aid in a faction's victory, travelers are searching for a hidden wormhole, which will let them travel back in time and weaken a faction before it can grow."
+autowrap = true

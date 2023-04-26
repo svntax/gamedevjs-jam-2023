@@ -60,7 +60,7 @@ func _on_LoginButton_pressed():
 
 func _on_StartButton_pressed():
 	# TODO: introduce story
-	get_tree().change_scene("res://SpaceFields/FieldNormal.tscn")
+	get_tree().change_scene("res://UI/Screens/Gameplay.tscn")
 
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://TitleScreen.tscn")

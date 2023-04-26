@@ -1,8 +1,32 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/Screens/Gameplay.gd" type="Script" id=1]
+[ext_resource path="res://Spaceships/PlayerShip.tscn" type="PackedScene" id=2]
 
 [node name="Gameplay" type="Node2D"]
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="SpaceBg" type="ColorRect" parent="."]
+margin_right = 640.0
+margin_bottom = 360.0
+color = Color( 0.101961, 0.101961, 0.176471, 1 )
+
+[node name="Stars" type="Node2D" parent="."]
+
+[node name="PlayerShip" parent="." instance=ExtResource( 2 )]
+
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="EventRoot" type="CenterContainer" parent="UI"]
+margin_right = 640.0
+margin_bottom = 360.0
+mouse_filter = 2
+
+[node name="EventTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="EventTimer" to="." method="_on_EventTimer_timeout"]
