@@ -1,16 +1,29 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://UI/MainUITheme.tres" type="Theme" id=1]
 [ext_resource path="res://UI/FontLarge.tres" type="DynamicFont" id=2]
 [ext_resource path="res://UI/RulesContainer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/MultiverseContainer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/Screens/MainMenuScreen.gd" type="Script" id=5]
+[ext_resource path="res://SpaceBg.gd" type="Script" id=6]
 
 [node name="MainMenuScreen" type="Node2D"]
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="SpaceBg" type="ColorRect" parent="."]
+margin_right = 640.0
+margin_bottom = 360.0
+color = Color( 0.101961, 0.101961, 0.176471, 1 )
+script = ExtResource( 6 )
+
+[node name="Outline" type="ColorRect" parent="."]
+margin_left = 247.0
+margin_top = 31.0
+margin_right = 609.0
+margin_bottom = 329.0
 
 [node name="UI" type="Control" parent="."]
 rect_min_size = Vector2( 640, 360 )
@@ -64,6 +77,13 @@ margin_right = 120.0
 margin_bottom = 152.0
 rect_min_size = Vector2( 120, 40 )
 text = "Multiverse"
+
+[node name="BackButton" type="Button" parent="UI/Buttons"]
+margin_top = 168.0
+margin_right = 120.0
+margin_bottom = 208.0
+rect_min_size = Vector2( 120, 40 )
+text = "Back"
 
 [node name="RulesContainer" parent="UI" instance=ExtResource( 3 )]
 visible = false
@@ -157,5 +177,6 @@ text = "Login"
 [connection signal="pressed" from="UI/Buttons/NewGameButton" to="." method="_on_NewGameButton_pressed"]
 [connection signal="pressed" from="UI/Buttons/ControlsButton" to="." method="_on_ControlsButton_pressed"]
 [connection signal="pressed" from="UI/Buttons/MultiverseButton" to="." method="_on_MultiverseButton_pressed"]
+[connection signal="pressed" from="UI/Buttons/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="UI/NewGameContainer/Root/Page01/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="UI/NewGameContainer/Root/Page01/VBoxContainer/LoginButton" to="." method="_on_LoginButton_pressed"]

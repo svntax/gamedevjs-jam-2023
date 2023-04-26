@@ -26,7 +26,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Gamedevjs2023"
+config/name="MultiverseSpaceWars"
 run/main_scene="res://TitleScreen.tscn"
 config/icon="res://icon.png"
 

@@ -84,7 +84,6 @@ func fetch_user_data() -> bool:
 			else:
 				return false
 	else:
-		print("User not signed in")
 		user_support_square.set_text("N/A")
 		user_support_circle.set_text("N/A")
 		user_support_triangle.set_text("N/A")
